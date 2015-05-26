@@ -1,4 +1,4 @@
-## 132 :: Lab 07 :: 
+## CKME132 :: Lab 07 :: Amr Malik
 ## 
 
 ## Task1 :: f1(x) :: Takes an argument x returns 3x+1
@@ -55,9 +55,7 @@ T5_collatzIter1 <- function(startValue=10) {
     ## keep going until the collatz output reaches 1
     while ((retVect[length(retVect)] > 1)) {
         retVect <- c(retVect,collatz(retVect[length(retVect)]))
-        ## if(retVect[length(retVect)] == 1) return(retVect)
-    }
-    
+    }    
     return(retVect)
 }
 
@@ -96,25 +94,18 @@ Task7 <- function(inputVect=c(10,5,4)) {
     
     retVect <- vector(mode="integer", length = 0) ## initvector
     
-    ## T6_collatzIter() returns a list, first sublist has the no. of tries
-    ## we call T6_collatzIter() and index into the first sublist
-    numTries <- T6_collatzIter(inputVect[1]) [[1]]
-    
-    ## insert startValue
-    retVect <- c(retVect,numTries) 
-    
-    
-    
-    ## keep going until the collatz output reaches 1
+    ## keep going until the collatz values in inputVect are exhausted
 
-    for (i in 1:(length(inputVect) - 1)) {
-        # Get i'th element in inputVect subset output of T6 to get first int val
-        numTries <- T6_collatzIter(inputVect[i])[[1]]
+      for (i in 1:(length(inputVect))) {
+        ## T6_collatzIter() returns a list, first sublist has the no. of tries
+        ## To et i'th element in inputVect subset output of T6 to get first int val
+        ## we call T6_collatzIter() and index into the first sublist
+        
+        numTries <- T6_collatzIter(inputVect[i])[[1]][1]
         retVect <- c(retVect,numTries) ## insert startValue
-    }
-    
+      }
+      
     ## construct data frame 
-
     return(data.frame(inputVect,retVect))
 }
 
