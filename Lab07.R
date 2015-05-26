@@ -117,3 +117,10 @@ Task7 <- function(inputVect=c(10,5,4)) {
 
     return(data.frame(inputVect,retVect))
 }
+
+## Task8 :: use task5 to create an fn(x) which returns the max(fn(x))
+
+T8_maxValInOrbit <- function(x) {
+  return(max(T5_collatzIter1(x)))
+  
+}
