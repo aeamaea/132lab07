@@ -23,7 +23,7 @@ collatz <- function(x)
     
 } ## end collatz()
 
-
+## Task 4 :: iterate collatz() with a startval and how many times to iterate
 collatzIter <- function(startValue=10, numTimes=3) {
     if (startValue==10 && numTimes==3) 
        {
