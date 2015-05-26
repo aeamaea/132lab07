@@ -98,16 +98,19 @@ Task7 <- function(inputVect=c(10,5,4)) {
     
     ## T6_collatzIter() returns a list, first sublist has the no. of tries
     ## we call T6_collatzIter() and index into the first sublist
-    numTries <- T6_collatzIter(inputVect[1])[[1]]
-    retVect <- c(retVect,numTries)) ## insert startValue
+    numTries <- T6_collatzIter(inputVect[1]) [[1]]
+    
+    ## insert startValue
+    retVect <- c(retVect,numTries) 
     
     
     
     ## keep going until the collatz output reaches 1
 
-    for (i in 1:length(inputVect)-1) {
-        numTries <- T6_collatzIter(inputVect[1])[[1]]
-        retVect <- c(retVect,numTries)) ## insert startValue
+    for (i in 1:(length(inputVect) - 1)) {
+        # Get i'th element in inputVect subset output of T6 to get first int val
+        numTries <- T6_collatzIter(inputVect[i])[[1]]
+        retVect <- c(retVect,numTries) ## insert startValue
     }
     
     ## construct data frame 
