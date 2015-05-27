@@ -1,4 +1,4 @@
-## CKME132 :: Lab 07 :: Amr Malik
+## 132 :: Lab 07 :: aeamaea
 ## 
 
 ## Task1 :: f1(x) :: Takes an argument x returns 3x+1
