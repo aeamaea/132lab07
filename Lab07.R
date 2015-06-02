@@ -168,3 +168,39 @@ T10 <- function(inputVect) {
     }
     
 } ## End T10
+
+## T11() -- do what T9 does, but also count the number of odd nums in the trajectory
+
+T11 <- function(inputVect) {
+    
+    orbitVect <- vector(mode="integer", length = 0)   ## initvector
+    numTriesVect <- vector(mode="integer", length=0)
+    oddNumsVect <- vector(mode="integer", length=0)
+    maxOrbit <- 0                                   ## holding var for maxOrbit val
+    
+    ## keep going until the collatz values in inputVect are exhausted
+    
+    for (i in 1:(length(inputVect))) {
+        ## T6_collatzIter() returns a list, first sublist has the no. of tries
+        ## To et i'th element in inputVect subset output of T6 to get first int val
+        ## we call T6_collatzIter() and index into the first sublist
+        
+        numTries <- T6_collatzIter(inputVect[i])[[1]][1]
+        # output of T6, get sublist that is the vector cotaining values, mod each with 2, check if result 1 (is odd)
+        # sum that vector of logicals and you have number of odd entries
+        
+        oddNums  <- sum(T6_collatzIter(inputVect[i])[[2]] %% 2 == 1)
+        numTriesVect <- c(numTriesVect,numTries) ## insert startValue
+        
+        ## T8_maxValInOrbit() returns max value in orbit based on input int
+        ## We're passing the current value in the inputVect to T8_maxValInOrbit()
+        maxOrbit <- T8_maxValInOrbit(inputVect[i])
+        orbitVect <- c(orbitVect,maxOrbit)
+        oddNumsVect <- c(oddNumsVect,oddNums)
+    }
+    
+    ## construct data frame 
+    retDF <- data.frame(inputVect,orbitVect,numTriesVect,oddNumsVect)
+    colnames(retDF) <- c("number","maxinorbit", "iterations","oddnums")
+    return(retDF)
+} ## End T11()
