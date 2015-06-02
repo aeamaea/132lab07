@@ -150,3 +150,21 @@ T9 <- function(inputVect=c(99,88,77)) {
     colnames(retDF) <- c("number","maxinorbit", "iterations")
     return(retDF)
 }
+
+## T10() -- calls T9 gets top/bottom 5 entries after sorting the data frame on iterations
+##          low to high.
+
+T10 <- function(inputVect) {
+    
+    yy <- T9(inputVect) ## returns DF w/ col names c("number","maxinorbit", "iterations")
+    yy <- yy[order(yy$iterations),] ## order the DF on the iterations columns
+    
+    if(nrow(yy) < 10) {
+        return(yy)
+    } else {
+        ## you could also do zz[c(1:5),(nrow(zz)-4):nrow(zz),] to get 1st/last 5 rows
+        ## but head/tail solution below is more elegant. (Credit: Dr. Jensen)
+        return(rbind(head(yy,5),tail(yy,5)))
+    }
+    
+} ## End T10
