@@ -125,12 +125,6 @@ T8_maxValInOrbit <- function(x) {
 
 T9 <- function(inputVect=c(99,88,77)) {
     
-    # Note: we're summing the LOGICAL values not the numbers in the vector
-    if (sum(inputVect==c(99,88,77)) == 3 ) 
-    {
-        print("Called with defaults. c(99,88,77) ...")
-    }
-    
     orbitVect <- vector(mode="integer", length = 0)   ## initvector
     numTriesVect <- vector(mode="integer", length=0)
     maxOrbit <- 0                                   ## holding var for maxOrbit val
