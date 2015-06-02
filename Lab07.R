@@ -131,7 +131,8 @@ T9 <- function(inputVect=c(99,88,77)) {
         print("Called with defaults. c(99,88,77) ...")
     }
     
-    retVect <- vector(mode="integer", length = 0)   ## initvector
+    orbitVect <- vector(mode="integer", length = 0)   ## initvector
+    numTriesVect <- vector(mode="integer", length=0)
     maxOrbit <- 0                                   ## holding var for maxOrbit val
     
     ## keep going until the collatz values in inputVect are exhausted
@@ -142,13 +143,16 @@ T9 <- function(inputVect=c(99,88,77)) {
         ## we call T6_collatzIter() and index into the first sublist
         
         numTries <- T6_collatzIter(inputVect[i])[[1]][1]
+        numTriesVect <- c(numTriesVect,numTries) ## insert startValue
         
         ## T8_maxValInOrbit() returns max value in orbit based on input int
         ## We're passing the current value in the inputVect to T8_maxValInOrbit()
         maxOrbit <- T8_maxValInOrbit(inputVect[i])
-        retVect <- c(retVect,maxOrbit,numTries) ## insert startValue
+        orbitVect <- c(orbitVect,maxOrbit)
     }
     
     ## construct data frame 
-    return(data.frame(inputVect,retVect))
+    retDF <- data.frame(inputVect,orbitVect,numTriesVect)
+    colnames(retDF) <- c("number","maxinorbit", "iterations")
+    return(retDF)
 }
