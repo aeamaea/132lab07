@@ -122,6 +122,16 @@ T8_maxValInOrbit <- function(x) {
 ##      and the number of iterations it takes to reach 1
 #
 ## Created by modifying Task7()
+# 
+# > T9(1:7)
+#      number maxinorbit iterations
+# 1      1          1          0
+# 2      2          2          1
+# 3      3         16          7
+# 4      4          4          2
+# 5      5         16          5
+# 6      6         16          8
+# 7      7         52         16
 
 T9 <- function(inputVect=c(99,88,77)) {
     
@@ -153,6 +163,19 @@ T9 <- function(inputVect=c(99,88,77)) {
 
 ## T10() -- calls T9 gets top/bottom 5 entries after sorting the data frame on iterations
 ##          low to high.
+# 
+# >  T10(1:100)
+#      number maxinorbit iterations
+# 1       1          1          0
+# 2       2          2          1
+# 4       4          4          2
+# 8       8          8          3
+# 16     16         16          4
+# 27     27       9232        111
+# 54     54       9232        112
+# 55     55       9232        112
+# 73     73       9232        115
+# 97     97       9232        118
 
 T10 <- function(inputVect) {
     
@@ -170,6 +193,22 @@ T10 <- function(inputVect) {
 } ## End T10
 
 ## T11() -- do what T9 does, but also count the number of odd nums in the trajectory
+# > T11(c(1:10,500,501,100000,100001))
+# number maxinorbit iterations oddnums
+# 1       1          1          0       1
+# 2       2          2          1       1
+# 3       3         16          7       3
+# 4       4          4          2       1
+# 5       5         16          5       2
+# 6       6         16          8       3
+# 7       7         52         16       6
+# 8       8          8          3       1
+# 9       9         52         19       7
+# 10     10         16          6       2
+# 11    500       9232        110      40
+# 12    501       9232        110      40
+# 13 100000     100000        128      44
+# 14 100001     300004         89      29
 
 T11 <- function(inputVect) {
     
