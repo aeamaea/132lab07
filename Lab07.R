@@ -115,3 +115,40 @@ T8_maxValInOrbit <- function(x) {
   return(max(T5_collatzIter1(x)))
   
 }
+
+## Task9 :: 
+##      takes a numeric vector as an argument, and returns a data frame with three columns:
+##      the original number, the largest element of that number’s trajectory, 
+##      and the number of iterations it takes to reach 1
+#
+## Created by modifying Task7()
+
+T9 <- function(inputVect=c(99,88,77)) {
+    
+    # Note: we're summing the LOGICAL values not the numbers in the vector
+    if (sum(inputVect==c(99,88,77)) == 3 ) 
+    {
+        print("Called with defaults. c(99,88,77) ...")
+    }
+    
+    retVect <- vector(mode="integer", length = 0)   ## initvector
+    maxOrbit <- 0                                   ## holding var for maxOrbit val
+    
+    ## keep going until the collatz values in inputVect are exhausted
+    
+    for (i in 1:(length(inputVect))) {
+        ## T6_collatzIter() returns a list, first sublist has the no. of tries
+        ## To et i'th element in inputVect subset output of T6 to get first int val
+        ## we call T6_collatzIter() and index into the first sublist
+        
+        numTries <- T6_collatzIter(inputVect[i])[[1]][1]
+        
+        ## T8_maxValInOrbit() returns max value in orbit based on input int
+        ## We're passing the current value in the inputVect to T8_maxValInOrbit()
+        maxOrbit <- T8_maxValInOrbit(inputVect[i])
+        retVect <- c(retVect,maxOrbit,numTries) ## insert startValue
+    }
+    
+    ## construct data frame 
+    return(data.frame(inputVect,retVect))
+}
