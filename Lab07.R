@@ -27,7 +27,7 @@ collatz <- function(x)
 collatzIter <- function(startValue=10, numTimes=3) {
     if (startValue==10 && numTimes==3) 
        {
-           print("Called with defaults. Start=10 Numtimes=3 ...")
+           print("collatzIter::Called with defaults. Start=10 Numtimes=3 ...")
        }
     
     retVect <- vector(mode="integer", length = 0) ## initvector
@@ -46,7 +46,7 @@ T5_collatzIter1 <- function(startValue=10) {
  
     if (startValue==10 ) 
     {
-        print("Called with defaults. Start=10 ...")
+        print("T5::Called with defaults. Start=10 ...")
     }
     
     retVect <- vector(mode="integer", length = 0) ## initvector
@@ -64,7 +64,7 @@ T6_collatzIter <- function(startValue=10) {
     
     if (startValue==10 ) 
     {
-        print("Called with defaults. Start=10 ...")
+        print("T6::Called with defaults. Start=10 ...")
     }
     
     retVect <- vector(mode="integer", length = 0) ## initvector
@@ -89,7 +89,7 @@ Task7 <- function(inputVect=c(10,5,4)) {
     
     if (sum(inputVect==c(10,5,4)) == 3 ) 
     {
-        print("Called with defaults. c(10,5,4) ...")
+        print("T7::Called with defaults. c(10,5,4) ...")
     }
     
     retVect <- vector(mode="integer", length = 0) ## initvector
